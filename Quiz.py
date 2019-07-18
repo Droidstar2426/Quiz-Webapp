@@ -19,6 +19,7 @@ answered=[]
 for i in ques.keys():
     selectques.append(i)
 
+#signup page
 @app.route("/signup",methods=["GET","POST"])
 def signup():
     if request.method=="POST":
@@ -28,7 +29,7 @@ def signup():
         return redirect(url_for("login"))
     return render_template("signup.html")
 
-
+#result of quiz
 @app.route("/result",methods =["Post"])
 def result():
     if "Username" in session:
@@ -43,6 +44,7 @@ def result():
     else:
         return redirect(url_for("login"))
 
+#quiz page
 @app.route("/quiz")
 def quiz():
     if "Username" in session:
@@ -50,6 +52,7 @@ def quiz():
     else:
         return redirect(url_for("login"))
 
+#login page
 @app.route("/",methods=["GET","POST"])
 def login():
     error = ""
